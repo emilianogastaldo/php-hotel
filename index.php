@@ -46,18 +46,19 @@ if(count($_GET)){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css' integrity='sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==' crossorigin='anonymous'/>
     <title>Document</title>
 </head>
-<body>
-    <section>
+<body class="bg-dark text-white">
+    <section class="container mt-5">
         <h2>Hotels</h2>
-        <form>
-            <select name="is-parking" id="parking">
+        <form class="d-flex gap-4 my-4">
+            <select class="form-select w-auto" name="is-parking" id="parking">
                 <option value="">Select option</option>
                 <option value="true">Empty</option>
                 <option value="false">Full</option>
             </select>
-            <select name="vote-value" id="vote">
+            <select class="form-select w-auto" name="vote-value" id="vote">
                 <option value="">Scegli un voto</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -65,10 +66,10 @@ if(count($_GET)){
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <button type="submit">Search</button>
-            <button type="reset">Reset</button>
+            <button class="btn btn-primary" type="submit">Search</button>
+            <button class="btn btn-info" type="reset">Reset</button>
         </form>
-        <table>
+        <table class="table table-dark">
             <thead>
                 <th>Name</th>
                 <th>Description</th>
