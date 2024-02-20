@@ -14,9 +14,26 @@ var_dump($hotels)
 <body>
     <section>
         <h2>Hotels</h2>
-        <?php foreach($hotels as $hotel) :?>
-            <p><?= $hotel['name']?></p>
-        <?php endforeach?>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Parking</th>
+                <th>Vote</th>
+                <th>Distance to center</th>
+            </thead>
+            <tbody>
+                <?php foreach($hotels as $hotel) :?>
+                    <tr>
+                        <td><?= $hotel['name']?></td>
+                        <td><?= $hotel['description']?></td>
+                        <td><?= $parking = $hotel['parking'] ? 'true' : 'false' ?></td>
+                        <td><?= $hotel['vote']?></td>
+                        <td><?= $hotel['distance_to_center']?></td>
+                    </tr>
+                <?php endforeach?>
+            </tbody>
+        </table>
     </section>
 </body>
 </html>
