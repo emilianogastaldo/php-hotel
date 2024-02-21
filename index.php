@@ -2,7 +2,9 @@
 include 'data.php';
 
 // Creo subito l'array degli hotel filtrati così non ho problemi all'avvio della pagina
-$filter_hotels = [...$hotels];
+// $filter_hotels = [...$hotels];
+// L'ho tolto perché bastava riassegnare il risultato del filtro a $hotels
+
 function is_parking($hotels, $parking_search, $hotel_vote){
     // creo l'array filtrato
     $filtered_results = array();
@@ -36,7 +38,7 @@ function is_parking($hotels, $parking_search, $hotel_vote){
 if(count($_GET)){
     $parking_search = $_GET['is-parking'];
     $hotel_vote = intval($_GET['vote-value']);
-    $filter_hotels = is_parking($hotels, $parking_search, $hotel_vote);
+    $hotels = is_parking($hotels, $parking_search, $hotel_vote);
 }
 
 ?>
@@ -78,13 +80,13 @@ if(count($_GET)){
                 <th>Distance to center</th>
             </thead>
             <tbody>
-                <?php foreach($filter_hotels as $hotel) :?>
+                <?php foreach($hotels as $hotel) :?>
                     <tr>
                         <td><?= $hotel['name']?></td>
                         <td><?= $hotel['description']?></td>
-                        <td><?= $parking = $hotel['parking'] ? 'SI' : 'NO' ?></td>
-                        <td><?= $hotel['vote']?></td>
-                        <td><?= $hotel['distance_to_center']?></td>                        
+                        <td><?= $hotel['parking'] ? 'SI' : 'NO' ?></td>
+                        <td><?= $hotel['vote']?>/5</td>
+                        <td><?= $hotel['distance_to_center']?> km</td>                        
                     </tr>                    
                 <?php endforeach?>
             </tbody>
